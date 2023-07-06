@@ -5,4 +5,7 @@
 Это дипломный проект Яндекс.Практикума по специальности "Веб-разработчик".
 
 
-[ссылка на сайт] (https://movie-heyrene.nomoredomains.rocks/saved-movies)
+* [ссылка на сайт] (https://movie-heyrene.nomoredomains.rocks/saved-movies)
+
+
+* [ссылка на PULL REQUEST] (https://github.com/heyRene/movies-explorer-frontend/pull/1)
