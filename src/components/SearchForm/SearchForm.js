@@ -4,7 +4,6 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import { saveToLocalStorage, getFromLocalStorage } from "../../utils/movies";
 import "./SearchForm.css";
 import { useLocation } from "react-router-dom";
-import { useFormValidation } from "../../utils/validation";
 
 function SearchForm({ handleSearch }) {
   let location = useLocation();
@@ -19,6 +18,9 @@ function SearchForm({ handleSearch }) {
     if (location.pathname === "/movies") {
       saveToLocalStorage("isChecked", e.target.checked);
     }
+    if (location.pathname === "/saved-movies") {
+      saveToLocalStorage("isCheckedSavedMovies", e.target.checked);
+    }
   }
 
   function handeleInput(event) {
@@ -26,14 +28,25 @@ function SearchForm({ handleSearch }) {
     if (location.pathname === "/movies") {
       saveToLocalStorage("query", event.target.value);
     }
+    if (location.pathname === "/saved-movies") {
+      saveToLocalStorage("isSearching", event.target.value);
+    }
   }
   function getSearchedQueries() {
     const searchedQueries = getFromLocalStorage("query");
     return searchedQueries;
   }
   function getCheckboxStatus() {
-    const checkboxStatus = getFromLocalStorage("isChecked");
+    const checkboxStatus = getFromLocalStorage("isChecked");;
     return checkboxStatus;
+  }
+  function getSearchedQueriesSavedMovies() {
+    const isSearching = getFromLocalStorage('isSearching');
+    return isSearching;
+  }
+  function getCheckboxStatusSavedMovies() {
+    const checkboxStatusSavedMovies = getFromLocalStorage('isCheckedSavedMovies');
+    return checkboxStatusSavedMovies;
   }
 
   function handleSubmit(e) {
@@ -51,6 +64,10 @@ function SearchForm({ handleSearch }) {
     if (location.pathname === "/movies") {
       setQuery(getSearchedQueries());
       setIsChecked(getCheckboxStatus());
+    }
+    if(location.pathname === "/saved-movies") {
+      setQuery(getSearchedQueriesSavedMovies());
+      setIsChecked(getCheckboxStatusSavedMovies());
     }
   }, [location]);
 

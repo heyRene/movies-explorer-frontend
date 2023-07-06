@@ -1,4 +1,6 @@
+import {SHORT_FILM_DURATION} from './constants';
 // localStorage
+
 export const saveToLocalStorage = (key, value) => {
   try {
     localStorage.setItem(key, JSON.stringify(value));
@@ -29,10 +31,12 @@ export const filterMovies = (cards, query, short) => {
    card.nameRU.toLowerCase().includes(query.toLowerCase()));
   }
   if(short) {
-    return filtered.filter((card) => card.duration <= 40);
+    console.log('short');
+    return filtered.filter((card) => card.duration <= SHORT_FILM_DURATION);
   }
   return filtered;
 }
+
 export function filterSavedMovies(movies, userId) {
   const filtered = movies.filter((movie) => {
   return movie.owner === userId});

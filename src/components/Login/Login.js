@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { useFormValidation } from "../../utils/validation";
+import { validateEmail } from "../../utils/validation";
 import "./Login.css";
 
 function Login({ onLogin, errorMessage }) {
@@ -27,6 +28,7 @@ function Login({ onLogin, errorMessage }) {
           name="email"
           type="email"
           placeholder="Введите почту"
+          // pattern={PATTERN_EMAIL}
           value={values.email || ""}
           onChange={handleChange}
           minLength="2"
@@ -34,7 +36,7 @@ function Login({ onLogin, errorMessage }) {
           required
         ></input>
         <span id="name-error" className="login__error">
-          {errors.email}
+          {validateEmail(values.email).message}
         </span>
         <label className="login__label">Пароль</label>
         <input
@@ -56,7 +58,7 @@ function Login({ onLogin, errorMessage }) {
               ? 'При авторизации произошла ошибка.'
               : errorMessage.login.errorText}
           </span>
-        <button className="login__button" type="submit" disabled={!isValid}>
+        <button className="login__button" type="submit" disabled={!isValid || validateEmail(values.email).invalid}>
         Войти
       </button>
       </form>

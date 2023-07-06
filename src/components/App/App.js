@@ -144,7 +144,6 @@ function App() {
 
   // логин и сохранение токена в local storage
   function onLogin(values) {
-    setIsLoading(true);
     auth
       .authorize(values.email, values.password)
       .then((data) => {
@@ -222,11 +221,13 @@ function App() {
   }
   // удаление карточки и создание массива сохраненных фильмов из оставшихся
   function handleDeleteMovie(id) {
+    // debugger
     mainApi
       .deleteMovie(id)
       .then((res) => {
         const newMoviesList = savedMovies.filter((m) => m._id !== id);
         setSavedMovies(newMoviesList);
+        // saveToLocalStorage('searchedSavedMovies', newMoviesList);
       })
       .catch((err) => console.log(err));
   }

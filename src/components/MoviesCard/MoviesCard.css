@@ -85,6 +85,9 @@
     max-width: 339px;
     min-height: 190px;
   }
+  .movie__delete-button{
+    opacity: 1;
+  }
 }
 @media screen and (max-width: 369px) {
   .movie {
@@ -99,4 +102,5 @@
     font-size: 10px;
     line-height: 12px;
   }
+ 
 }

@@ -14,29 +14,32 @@ import Preloader from "../Preloader/Preloader";
 function SavedMovies({ onDelete, movies }) {
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  // const [isSearching, setIsSearching] = useState(getFromLocalStorage('isSearching'));
   const userId = getFromLocalStorage('userId');
 
-  // useEffect(() => {
-  //   if (getFromLocalStorage("savedMovies")) {
-  //     setFilteredMovies(getFromLocalStorage("savedMovies"));
-  //     console.log(savedMovies);
-  //   }
-  //   setFilteredMovies(movies)
-  // }, [movies, savedMovies]);
 
+  // выводит на экран сохраненные фильмы
   useEffect(() => {
+    // if (getFromLocalStorage("searchedSavedMovies") ) {
+    //   handleSavedMovies(getFromLocalStorage("searchedSavedMovies"), userId);
+    // }
     if (getFromLocalStorage("savedMovies") ) {
       handleSavedMovies(getFromLocalStorage("savedMovies"), userId);
     }
-    handleSavedMovies(movies, userId);
+    handleSavedMovies(filterMovies(movies, getFromLocalStorage('isSearching'), getFromLocalStorage('isCheckedSavedMovies')), userId);
+    console.log(filteredMovies);
   }, [userId, movies]);
 
+
+
+// фильтрует массив всех сохраненных фильмов для каждого пользователя - выводит сохраненные фильмы для каждого
   function handleSavedMovies(movies, userId) {
     const savedMovies = filterSavedMovies(movies, userId);
     saveToLocalStorage("savedMovies", savedMovies);
-    return setFilteredMovies(savedMovies);
+    setFilteredMovies(savedMovies);
   }
 
+// фильтрует сохраненные фильмы при поиске
   function handleSearch(query, isChecked) {
     setIsLoading(true);
     setTimeout(
@@ -45,10 +48,12 @@ function SavedMovies({ onDelete, movies }) {
     setIsLoading(true);
     const filtered = filterMovies(storedMovies, query, isChecked);
     if (filtered.length === 0) {
+      
     }
     const filteredSavedMovies = filterSavedMovies(filtered, userId);
     setIsLoading(false);
-    return setFilteredMovies(filteredSavedMovies);
+    // saveToLocalStorage('searchedSavedMovies', filteredSavedMovies);
+    setFilteredMovies(filteredSavedMovies);
   }, 300);
   }
 

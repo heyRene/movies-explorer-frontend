@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFormValidation } from "../../utils/validation";
 import logo from "../../images/logo.svg";
+import { validateEmail } from '../../utils/validation';
 import "./Register.css";
 
 function Register({ onRegister, errorMessage }) {
@@ -49,7 +50,7 @@ function Register({ onRegister, errorMessage }) {
           required
         ></input>
         <span id="email-error" className="register__error">
-          {errors.email}
+        {validateEmail(values.email).message}
         </span>
         <label className="register__label">Пароль</label>
         <input
