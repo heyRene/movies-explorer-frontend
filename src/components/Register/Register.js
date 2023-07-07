@@ -72,7 +72,7 @@ function Register({ onRegister, errorMessage }) {
               ? 'При регистрации пользователя произошла ошибка.'
               : errorMessage.register.errorText}
           </span>
-        <button className="register__button" type="submit" disabled={!isValid}>
+        <button className="register__button" type="submit" disabled={!isValid || validateEmail(values.email).invalid}>
         Зарегистрироваться
       </button>
       </form>
