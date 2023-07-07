@@ -1,0 +1,146 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  max-width: 396px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 70px;
+}
+.login__api-error {
+  color: #af2647;
+  font-size: 10px;
+}
+.login__logo {
+  align-self: flex-start;
+  width: 38px;
+  height: 38px;
+}
+.login__logo:hover {
+  opacity: 0.7;
+}
+
+
+.login__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  margin: 40px 0;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+.login__label {
+  margin: 0 0 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #a0a0a0;
+}
+.login__input {
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 0 10px;
+  margin: 0 0 6px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+.login__input:invalid {
+  color: #af2647;
+}
+.login__input:last-of-type {
+  margin-bottom: 6px;
+}
+.login__input:focus {
+  border-bottom: 1px solid #000000;
+  outline: 0 !important;
+}
+.login__button {
+  width: 396px;
+  height: 45px;
+  background: #000000;
+  border-radius: 3px;
+  border: none;
+  margin: 203px 0 16px;
+  color: #ffffff;
+}
+.login__button:hover {
+  opacity: 0.8;
+}
+.login__button:disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
+}
+.login__button:disabled:hover{
+  opacity: 1;
+}
+.login__text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #a0a0a0;
+  margin: 0;
+}
+.login__link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+  margin: 0 6px 0;
+}
+.login__link:hover {
+  opacity: 0.7;
+}
+.login__error {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #af2647;
+  margin: 0 0 24px;
+}
+@media screen and (max-width: 768px) {
+  .login {
+    padding: 232px 0;
+  }
+}
+@media screen and (max-width: 460px) {
+  .login {
+    max-width: 260px;
+    padding: 56px 0 30px;
+  }
+  .login__logo {
+    align-self: center;
+  }
+  .login__title {
+    text-align: center;
+    margin: 50px 0 80px;
+  }
+  .login__button {
+    width: 260px;
+    height: 45px;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 14px;
+    margin: 291px 0 14px;
+  }
+  .login__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .login__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
