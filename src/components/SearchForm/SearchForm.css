@@ -1,0 +1,101 @@
+.search {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 80px 0 70px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(170, 170, 170, 0.2);
+  color: #000;
+}
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #fdfdfd;
+  height: 72px;
+  box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.08);
+  border-radius: 9px;
+  padding-left: 19px;
+  margin: 0;
+}
+.search-form__container {
+  position: relative;
+  width: 100%;
+}
+.search-form__input {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  padding: 7px 4px 9px 44px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  align-items: center;
+  background: url(../../images/searc-icon-light.svg) no-repeat;
+}
+
+.search-form__input:focus {
+  outline: 0 !important;
+
+}
+.search-form__input::-ms-clear {
+color:#000;
+}
+.search-form__input-error {
+  color: #af2647;
+  font-size: 13px;
+  padding-left: 44px;
+}
+
+.search-form__button {
+  border: none;
+  background: #fdfdfd;
+  padding: 0;
+  border-right: 1px solid rgba(203, 203, 203, 1);
+  padding-right: 19px;
+}
+.search-form__button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.search-form__filter-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding-left: 29px;
+}
+@media screen and (max-width: 891px) {
+  .search {
+    padding: 80px 0 109px;
+  }
+  .search-form {
+    max-width: 708px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .search-form {
+    position: relative;
+    z-index: 2;
+  }
+  .search-form__button {
+    border-right: none;
+  }
+}
+@media screen and (max-width: 369px) {
+  .search-form {
+    max-width: 300px;
+  }
+  .search-form__input {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a0a0a0;
+    background-image: none;
+    padding-left: 0;
+  }
+}

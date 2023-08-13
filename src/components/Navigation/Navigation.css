@@ -1,0 +1,229 @@
+.navigation {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+}
+.navigation__menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+}
+.navigation__movies {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: baseline;
+}
+.navigation__link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+.navigation__log-link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  cursor: pointer;
+}
+.navigation__log-link:hover {
+  opacity: 0.7;
+}
+.navigation__link_active {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000000;
+  text-align: center;
+}
+.navigation__link:hover {
+  opacity: 0.7;
+}
+.navigation__link_type_button {
+  background: #000000;
+  border-radius: 3px;
+  color: #ffffff;
+  text-align: center;
+  padding: 8px 20px;
+  margin: 0;
+  cursor: pointer;
+}
+.navigation__link-burger {
+  display: none;
+}
+.navigation__profile {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+  align-items: center;
+  text-decoration: none;
+}
+.navigation__profile:hover {
+  opacity: 0.7;
+}
+.navigation__profile-photo {
+  background-color: #f9f9f9;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background-image: url(../../images/profile-photo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.navigation__button {
+  width: 44px;
+  height: 44px;
+  border: none;
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: none;
+  padding: 0;
+  z-index: 1;
+  right: -600px;
+  display: none;
+  transition: right 0.3s ease-in-out;
+  cursor: pointer;
+}
+.navigation__button:hover {
+  opacity: 0.7;
+}
+.navigation__button_type_burger {
+  background-image: url("../../images/burger-button.svg");
+}
+
+.navigation__button_type_close {
+  width: 22px;
+  height: 22px;
+  background-image: url("../../images/close-button.svg");
+  padding: 22px;
+  box-sizing: content-box;
+  z-index: 5;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__button {
+    display: flex;
+  }
+  .navigation {
+    justify-content: flex-start;
+    gap: 30px;
+  }
+  .navigation__container {
+    display: none;
+  }
+  .navigation__container_visible {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+  }
+  .navigation__link-burger {
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+    text-align: center;
+  }
+  .navigation__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+    z-index: 3;
+  }
+  .navigation_type_open {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    flex-direction: column;
+    align-items: flex-end;
+    flex-grow: 1;
+    z-index: 2;
+    transition: background-color 0.7s ease-in;
+  }
+
+  .navigation__menu {
+    display: flex;
+    position: fixed;
+    right: -700px;
+    top: 0;
+    bottom: 0;
+    max-width: 520px;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 0 0 90px;
+    flex-grow: 1;
+    z-index: 3;
+    margin-left: 0;
+  }
+
+  .navigation__menu_type_open {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 159px 0 99px;
+    right: 0;
+    z-index: 3;
+  }
+
+  .navigation__link {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .navigation__link_active {
+    text-decoration: underline;
+  }
+
+  .navigation__movies {
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .navigation__menu {
+    max-width: 320px;
+  }
+
+  .navigation__link {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 369px) {
+  .navigation__log-link {
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .navigation {
+    gap: 14px;
+  }
+}
